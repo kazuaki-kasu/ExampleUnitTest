@@ -1,10 +1,10 @@
 package jp.ac.uryukyu.ie.e185704;
 
 public class LivingThing {
-    String name;
-    int hitPoint;
-    int attack;
-    boolean dead;
+    private String name;
+    private int hitPoint;
+    private int attack;
+    private boolean dead;
 
     public LivingThing(String name,int maxmumHP,int attack){
         this.name = name;
@@ -17,9 +17,28 @@ public class LivingThing {
     public boolean isDead(){
         return  dead;
     }
+    public void setDead(boolean dead){
+        this.dead = dead;
+    }
 
     public String getName(){
         return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public int getHitPoint(){
+        return hitPoint;
+    }
+
+    public void setHitPoint(int hitPoint) {
+        this.hitPoint = hitPoint;
+    }
+
+    public int getAttack(){
+        return attack;
     }
 
     public void attack(LivingThing opponent){
@@ -31,7 +50,7 @@ public class LivingThing {
     }
 
     public void wounded(int damage){
-        hitPoint -= damage;
+        hitPoint = hitPoint - damage;
         if(hitPoint < 0){
             dead = true;
             System.out.printf("%sは倒れた。\n", name);
@@ -39,3 +58,4 @@ public class LivingThing {
     }
 
 }
+
